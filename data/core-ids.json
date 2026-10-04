@@ -1,0 +1,1345 @@
+{
+  "_comment": "核心服装风格 id 注册表",
+  "coreIds": [
+    {
+      "id": "kimono_tradition",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "china_hanfu",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "tailoring_tradition",
+      "era": "empire",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "victorian",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "military_uniform",
+      "era": "empire",
+      "category": "utility_work"
+    },
+    {
+      "id": "flapper",
+      "era": "jazz",
+      "category": "lifestyle_soft"
+    },
+    {
+      "id": "hollywood_glamour",
+      "era": "wartime",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "utility_wartime",
+      "era": "wartime",
+      "category": "utility_work"
+    },
+    {
+      "id": "new_look",
+      "era": "newlook",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "ivy_league",
+      "era": "newlook",
+      "category": "heritage_classic"
+    },
+    {
+      "id": "mod",
+      "era": "youthquake",
+      "category": "street_sub"
+    },
+    {
+      "id": "hippie",
+      "era": "youthquake",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "disco",
+      "era": "disco_punk",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "punk",
+      "era": "disco_punk",
+      "category": "street_sub"
+    },
+    {
+      "id": "bohemian",
+      "era": "disco_punk",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "power_dressing",
+      "era": "power",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "preppy",
+      "era": "power",
+      "category": "heritage_classic"
+    },
+    {
+      "id": "hip_hop",
+      "era": "power",
+      "category": "street_sub"
+    },
+    {
+      "id": "goth",
+      "era": "power",
+      "category": "avant_concept"
+    },
+    {
+      "id": "japanese_avant",
+      "era": "power",
+      "category": "avant_concept"
+    },
+    {
+      "id": "deconstruction",
+      "era": "power",
+      "category": "avant_concept"
+    },
+    {
+      "id": "minimalism",
+      "era": "minimal_grunge",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "grunge",
+      "era": "minimal_grunge",
+      "category": "street_sub"
+    },
+    {
+      "id": "y2k_style",
+      "era": "y2k",
+      "category": "digital_trend"
+    },
+    {
+      "id": "streetwear",
+      "era": "y2k",
+      "category": "street_sub"
+    },
+    {
+      "id": "boho_chic",
+      "era": "y2k",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "normcore",
+      "era": "digital",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "athleisure",
+      "era": "digital",
+      "category": "sport_active"
+    },
+    {
+      "id": "techwear",
+      "era": "digital",
+      "category": "utility_work"
+    },
+    {
+      "id": "gorpcore",
+      "era": "digital",
+      "category": "utility_work"
+    },
+    {
+      "id": "workwear",
+      "era": "digital",
+      "category": "utility_work"
+    },
+    {
+      "id": "business_casual",
+      "era": "digital",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "business_formal",
+      "era": "digital",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "china_chic",
+      "era": "digital",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "old_money",
+      "era": "poly",
+      "category": "heritage_classic"
+    },
+    {
+      "id": "quiet_luxury",
+      "era": "poly",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "clean_girl",
+      "era": "poly",
+      "category": "lifestyle_soft"
+    },
+    {
+      "id": "cottagecore",
+      "era": "poly",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "y2k_revival",
+      "era": "poly",
+      "category": "digital_trend"
+    },
+    {
+      "id": "dark_academia",
+      "era": "poly",
+      "category": "heritage_classic"
+    },
+    {
+      "id": "new_chinese",
+      "era": "poly",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "genderless",
+      "era": "poly",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "avant_garde",
+      "era": "poly",
+      "category": "avant_concept"
+    },
+    {
+      "id": "haute_couture",
+      "era": "poly",
+      "category": "avant_concept"
+    },
+    {
+      "id": "romantic",
+      "era": "poly",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "vintage",
+      "era": "digital",
+      "category": "heritage_classic"
+    },
+    {
+      "id": "egyptian_linen",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "mesopotamian_kaunakes",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "greek_peplos",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "greek_chiton",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "greek_himation",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "roman_toga",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "roman_stola",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "roman_tunica",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "byzantine_court",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "persian_achaemenid",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "persian_sassanian",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "indian_sari",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "indian_dhoti",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "vedic_dress",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "hanfu_han",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "hanfu_tang",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "hanfu_song",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "hanfu_ming",
+      "era": "renaissance",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "hanfu_qing_court",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "japanese_kimono_heian",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "japanese_kimono",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "korean_hanbok",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "ottoman_kaftan",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "mesoamerican_dress",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "west_african_wrapper",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "egyptian_pharaoh",
+      "era": "ancient_early",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "byzantine_medieval",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "romanesque_tunic",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "gothic_houppelande",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "cotehardie",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "islamic_medieval_robe",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "mongol_deel",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "japanese_heian_court",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "renaissance_italian",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "landsknecht",
+      "era": "renaissance",
+      "category": "street_sub"
+    },
+    {
+      "id": "tudor",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "elizabethan_ruff",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "spanish_farthingale",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "renaissance_doublet",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "cavalier",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "puritan_dress",
+      "era": "baroque",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "louis_xiv_court",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "justaucorps",
+      "era": "baroque",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "baroque_court",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "rococo_pannier",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "robe_francaise",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "robe_anglaise",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "incroyables",
+      "era": "empire",
+      "category": "avant_concept"
+    },
+    {
+      "id": "directoire",
+      "era": "empire",
+      "category": "historical_court"
+    },
+    {
+      "id": "empire_silhouette",
+      "era": "empire",
+      "category": "historical_court"
+    },
+    {
+      "id": "regency_fashion",
+      "era": "empire",
+      "category": "historical_court"
+    },
+    {
+      "id": "dandy",
+      "era": "empire",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "romantic_1830s",
+      "era": "empire",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "early_victorian",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "crinoline",
+      "era": "victorian",
+      "category": "historical_court"
+    },
+    {
+      "id": "first_bustle",
+      "era": "victorian",
+      "category": "historical_court"
+    },
+    {
+      "id": "second_bustle",
+      "era": "victorian",
+      "category": "historical_court"
+    },
+    {
+      "id": "aesthetic_dress",
+      "era": "victorian",
+      "category": "avant_concept"
+    },
+    {
+      "id": "reform_dress",
+      "era": "victorian",
+      "category": "utility_work"
+    },
+    {
+      "id": "gibson_girl",
+      "era": "victorian",
+      "category": "lifestyle_soft"
+    },
+    {
+      "id": "tailor_made_suit",
+      "era": "victorian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "victorian_mourning",
+      "era": "victorian",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "victorian_menswear",
+      "era": "victorian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "s_bend_corset",
+      "era": "edwardian",
+      "category": "historical_court"
+    },
+    {
+      "id": "delphos_fortuny",
+      "era": "edwardian",
+      "category": "avant_concept"
+    },
+    {
+      "id": "poiret_orientalism",
+      "era": "edwardian",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "bias_cut_1930s",
+      "era": "wartime",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "surrealist_schiaparelli",
+      "era": "wartime",
+      "category": "avant_concept"
+    },
+    {
+      "id": "constructivist_dress",
+      "era": "jazz",
+      "category": "avant_concept"
+    },
+    {
+      "id": "cheongsam",
+      "era": "wartime",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "zhongshan_suit",
+      "era": "jazz",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "mao_suit",
+      "era": "newlook",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "teddy_boy",
+      "era": "newlook",
+      "category": "street_sub"
+    },
+    {
+      "id": "western_wear",
+      "era": "newlook",
+      "category": "heritage_classic"
+    },
+    {
+      "id": "beatnik",
+      "era": "newlook",
+      "category": "avant_concept"
+    },
+    {
+      "id": "skinhead",
+      "era": "youthquake",
+      "category": "street_sub"
+    },
+    {
+      "id": "cyberpunk",
+      "era": "minimal_grunge",
+      "category": "digital_trend"
+    },
+    {
+      "id": "visual_kei",
+      "era": "y2k",
+      "category": "avant_concept"
+    },
+    {
+      "id": "sapeurs",
+      "era": "digital",
+      "category": "heritage_classic"
+    },
+    {
+      "id": "hanfu_revival",
+      "era": "digital",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "huipil",
+      "era": "digital",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "kebaya",
+      "era": "digital",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "ao_dai",
+      "era": "digital",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "e_girl",
+      "era": "poly",
+      "category": "digital_trend"
+    },
+    {
+      "id": "tiktok_fashion",
+      "era": "poly",
+      "category": "digital_trend"
+    },
+    {
+      "id": "power_suit_woman",
+      "era": "power",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "wedding_white_victorian",
+      "era": "victorian",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "academic_dress",
+      "era": "renaissance",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "sumerian_kaunakes_elite",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "babylonian_dress",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "assyrian_court",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "egyptian_schenti",
+      "era": "ancient_early",
+      "category": "utility_work"
+    },
+    {
+      "id": "minoan_dress",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "etruscan_dress",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "parthian_dress",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "han_quju",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "han_ruqun",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "andean_early_textile",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "maya_classic_dress",
+      "era": "ancient_early",
+      "category": "historical_court"
+    },
+    {
+      "id": "carolingian_dress",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "bliaut_noble",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "islamic_tiraz",
+      "era": "medieval",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "abbasid_court",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "song_beizi",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "tang_hufu",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "tang_yuanlingpao",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "nara_period_dress",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "kamakura_kosode",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "muromachi_kosode",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "joseon_court",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "yuan_court_dress",
+      "era": "medieval",
+      "category": "historical_court"
+    },
+    {
+      "id": "irish_leine",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "scottish_highland",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "italian_gamurra",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "tudor_kirtle",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "cartwheel_ruff",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "falling_band",
+      "era": "renaissance",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "vertugado",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "mughal_court_dress",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "safavid_court",
+      "era": "renaissance",
+      "category": "historical_court"
+    },
+    {
+      "id": "ming_bufu",
+      "era": "renaissance",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "ming_mamianqun",
+      "era": "renaissance",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "periwig_fashion",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "mantua_early",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "edo_chonin",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "qing_early_court",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "polish_kontusz",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "sack_back_gown",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "pannier_extreme",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "robe_a_la_polonaise",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "habit_a_la_francaise",
+      "era": "rococo",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "thai_royal_classic",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "vietnamese_feudal",
+      "era": "rococo",
+      "category": "historical_court"
+    },
+    {
+      "id": "ashanti_kente_ceremonial",
+      "era": "rococo",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "directoire_gown",
+      "era": "empire",
+      "category": "historical_court"
+    },
+    {
+      "id": "merveilleuse_look",
+      "era": "empire",
+      "category": "avant_concept"
+    },
+    {
+      "id": "sans_culotte_fashion",
+      "era": "empire",
+      "category": "street_sub"
+    },
+    {
+      "id": "empire_chemise_dress",
+      "era": "empire",
+      "category": "historical_court"
+    },
+    {
+      "id": "pelisse_coat",
+      "era": "empire",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "regency_tailcoat",
+      "era": "empire",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "romantic_gigot",
+      "era": "empire",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "cage_crinoline",
+      "era": "victorian",
+      "category": "historical_court"
+    },
+    {
+      "id": "tournure",
+      "era": "victorian",
+      "category": "historical_court"
+    },
+    {
+      "id": "cuirass_bodice",
+      "era": "victorian",
+      "category": "historical_court"
+    },
+    {
+      "id": "lingerie_dress",
+      "era": "victorian",
+      "category": "lifestyle_soft"
+    },
+    {
+      "id": "princess_line_dress",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "frock_coat_victorian",
+      "era": "victorian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "morning_coat",
+      "era": "victorian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "leg_of_mutton_1890s",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "meiji_yofuku",
+      "era": "victorian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "norwegian_bunad",
+      "era": "victorian",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "edwardian_lingerie_dress",
+      "era": "edwardian",
+      "category": "lifestyle_soft"
+    },
+    {
+      "id": "pigeon_breast",
+      "era": "edwardian",
+      "category": "historical_court"
+    },
+    {
+      "id": "tailor_made_edwardian",
+      "era": "edwardian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "wartime_tailormade",
+      "era": "jazz",
+      "category": "utility_work"
+    },
+    {
+      "id": "robe_de_style_lanvin",
+      "era": "jazz",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "art_deco_evening",
+      "era": "jazz",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "bias_satin_gown",
+      "era": "wartime",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "utility_cc41",
+      "era": "wartime",
+      "category": "utility_work"
+    },
+    {
+      "id": "trench_coat_fashion",
+      "era": "jazz",
+      "category": "utility_work"
+    },
+    {
+      "id": "shanghai_qipao_1930s",
+      "era": "wartime",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "han_shenyi",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "heian_sokutai",
+      "era": "medieval",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "ethiopian_shammas",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "bunad_norway",
+      "era": "victorian",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "sami_gakti",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "traje_de_luces",
+      "era": "empire",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "greek_fustanella",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "dirndl_classic",
+      "era": "victorian",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "lederhosen",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "romanian_ie",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "ukrainian_vyshyvanka",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "russian_sarafan",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "georgian_chokha",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "armenian_taraz",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "tibetan_chuba",
+      "era": "renaissance",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "hanbok_joseon_daily",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "hanbok_court",
+      "era": "baroque",
+      "category": "historical_court"
+    },
+    {
+      "id": "vietnamese_ao_dai_classic",
+      "era": "rococo",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "khmer_sampot",
+      "era": "medieval",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "burmese_longyi",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "malay_baju_kurung",
+      "era": "renaissance",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "malay_baju_melayu",
+      "era": "renaissance",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "kebaya_classical",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "batik_classical",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "philippine_barong",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "philippine_terno",
+      "era": "victorian",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "sari_nivi",
+      "era": "victorian",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "lehenga_choli",
+      "era": "baroque",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "sherwani",
+      "era": "victorian",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "salwar_kameez",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "dhoti_angavastram",
+      "era": "ancient_early",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "bhutan_gho_kira",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "thawb",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "abaya",
+      "era": "victorian",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "djellaba",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "kaftan_moroccan",
+      "era": "baroque",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "boubou",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "kente_ceremonial",
+      "era": "baroque",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "agbada",
+      "era": "empire",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "shuka_maasai",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "habesha_kemis",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "rebozo",
+      "era": "baroque",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "china_poblana",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "charro_suit",
+      "era": "victorian",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "poncho_andean",
+      "era": "renaissance",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "gaucho_dress",
+      "era": "empire",
+      "category": "ethnic_folk"
+    },
+    {
+      "id": "plains_regalia",
+      "era": "empire",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "maori_korowai",
+      "era": "baroque",
+      "category": "ceremonial_ritual"
+    },
+    {
+      "id": "vic_1856_cage",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "vic_1870s_bustle1",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "vic_1875_natural",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "vic_1883_bustle2",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "vic_1890_legomutton",
+      "era": "victorian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "vic_1897_tailormade",
+      "era": "victorian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "vic_reform_dress",
+      "era": "victorian",
+      "category": "avant_concept"
+    },
+    {
+      "id": "edwardian_sbend",
+      "era": "edwardian",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "edwardian_tailored",
+      "era": "edwardian",
+      "category": "minimal_formal"
+    },
+    {
+      "id": "orientalism_poiret",
+      "era": "edwardian",
+      "category": "avant_concept"
+    },
+    {
+      "id": "jazz_1925_flapper_peak",
+      "era": "jazz",
+      "category": "lifestyle_soft"
+    },
+    {
+      "id": "thirties_bias",
+      "era": "wartime",
+      "category": "romantic_decor"
+    },
+    {
+      "id": "forties_utility",
+      "era": "wartime",
+      "category": "utility_work"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "fashion-style-tree",
+  "private": true,
+  "version": "0.1.0",
+  "license": "SEE LICENSE IN LICENSE and LICENSE-data.md",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "validate": "python3 scripts/validate_fashion.py",
+    "regen": "python3 ../scripts/generate_style_ontology.py && npm run validate"
+  },
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.170.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.8"
+  }
+}

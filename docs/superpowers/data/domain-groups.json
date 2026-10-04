@@ -1,0 +1,34 @@
+{
+  "A": [
+    "chemistry",
+    "construction",
+    "daily_life",
+    "manufacturing",
+    "physics"
+  ],
+  "B": [
+    "computing_systems",
+    "earth_space",
+    "military",
+    "space_exploration",
+    "transport"
+  ],
+  "C": [
+    "culture_media",
+    "economy",
+    "education_knowledge",
+    "governance",
+    "info_media"
+  ],
+  "D": [
+    "algorithms_cs",
+    "logic_foundations",
+    "math_pure"
+  ],
+  "E": [
+    "agriculture_food",
+    "energy_power",
+    "life_medicine",
+    "materials"
+  ]
+}

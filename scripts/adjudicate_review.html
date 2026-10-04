@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>科技重要度 + 收录边界 · 存量裁决台（契约 §8）</title>
+<!--
+  单文件裁决页：file:// 直开，零服务器、零 import、零外部资源（无字体/CDN/fetch/module）。
+  契约：docs/superpowers/specs/2026-09-27-adjud-tooling-contract.md §3/§4/§7/§8
+  spec ：docs/superpowers/specs/2026-09-27-importance-kind-review-design.md §1/§2/§4/§5/§6
+  数据：① 页内「选择卡片 JSON…」读 scripts/adjud_cards.mjs 产出的 data/adjud/cards/*.json（可多选，合并）
+        ② 把卡片文档内联进下方 id="inline-cards" 的 application/json 槽（demo / 离线预览，打开即载入）
+  判据 v1 尚未产出：顶部固定区显示 spec §1 判据原文 + spec §2 结构信号警告 + 契约 §4 通道定义。
+  卡片里没有任何建议档（spec §4 防锚定）；本页也不替你算建议档。
+-->
+<style>
+:root{--bg:#101317;--pan:#171c22;--pan2:#1e242c;--fg:#d8dee6;--dim:#8792a0;--ok:#4ec98a;--bad:#f0637a;--warn:#e0b34c;--line:#2a323c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.6 "Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+button{background:var(--pan2);color:var(--fg);border:1px solid var(--line);border-radius:5px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+button:hover{border-color:#3d4a57}
+button.on{background:#33414f;border-color:#5a7089;font-weight:700}
+button.pri{background:#2b4a3b;border-color:#3f6b55}
+button.danger{border-color:#7a3040;color:var(--bad)}
+button:disabled{opacity:.45;cursor:default}
+input,select,textarea{background:#0d1116;color:var(--fg);border:1px solid var(--line);border-radius:5px;font:inherit;font-size:12.5px;padding:3px 6px}
+textarea{width:100%;min-height:56px;resize:vertical;font:13px/1.55 "Segoe UI","Microsoft YaHei",sans-serif}
+header{position:sticky;top:0;z-index:9;background:#0b0e11f2;border-bottom:1px solid var(--line);padding:8px 16px 0}
+h1{font-size:15px;margin:0 0 4px}
+.bar{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12px;color:var(--dim)}
+.bar b{color:var(--fg);font-variant-numeric:tabular-nums}
+.bar .fld{display:flex;gap:4px;align-items:center}
+#critWrap{margin:8px 0 0;border-top:1px solid var(--line);padding:8px 0 10px;max-height:38vh;overflow:auto;font-size:12.5px}
+#critWrap.hide{display:none}
+#critWrap h2{font-size:13px;margin:10px 0 4px;color:var(--warn)}
+#critWrap table{border-collapse:collapse;width:100%;font-size:12px}
+#critWrap th,#critWrap td{border:1px solid var(--line);padding:2px 6px;text-align:left;vertical-align:top}
+#critWrap th{background:var(--pan)}
+#critWrap code{background:#0d1116;padding:0 4px;border-radius:3px;font-size:11.5px}
+main{padding:12px 16px 96px;max-width:1260px;margin:0 auto}
+.card{background:var(--pan);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.warnstrip{background:#241d12;border:1px solid #5a4416;border-radius:6px;padding:5px 9px;margin:0 0 8px;font-size:12.5px;color:#f0d69a}
+.warnstrip b{color:var(--warn);font-size:14px}
+.head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.head .nm{font-size:19px;font-weight:700}
+.head .en{color:var(--dim);font-size:12.5px}
+.chip{border:1px solid var(--line);border-radius:99px;padding:1px 8px;background:#0d1116;font-size:11.5px;font-variant-numeric:tabular-nums}
+.chip.hot{border-color:#7a5a20;color:var(--warn)}
+.chip.k{color:var(--dim)}
+.desc{margin:8px 0;padding:8px 10px;background:#0d1116;border:1px solid var(--line);border-radius:6px;font-size:14.5px;line-height:1.75}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(172px,1fr));gap:6px;margin:8px 0}
+.m{background:#0d1116;border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+.m .lb{color:var(--dim);font-size:11px;display:block}
+.m .vl{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.m .sub{color:var(--dim);font-size:11px}
+.dd{margin:6px 0;font-size:12.5px}
+.dd li{margin:1px 0}
+.why{background:#0d1116;border:1px solid var(--line);border-left:3px solid #3f6b55;border-radius:6px;padding:7px 9px;font-size:12.5px;color:#c6d2df;margin:8px 0}
+details.raw{margin:6px 0;font-size:12px;color:var(--dim)}
+details.raw pre{background:#0d1116;border:1px solid var(--line);border-radius:6px;padding:7px;overflow:auto;max-height:240px;font-size:11.5px}
+.ask{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.ask .q{font-weight:700;margin:2px 0 5px}
+.ask .hint{color:var(--dim);font-size:11.5px;font-weight:400;margin-left:6px}
+.req{color:var(--bad);font-weight:700}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.msg{margin-top:6px;font-size:12.5px;min-height:18px}
+.msg.err{color:var(--bad)}
+.msg.ok{color:var(--ok)}
+.cols{display:grid;grid-template-columns:1fr 330px;gap:12px}
+@media(max-width:1040px){.cols{grid-template-columns:1fr}}
+.side{background:var(--pan);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;align-self:start}
+.side h3{margin:2px 0 6px;font-size:12.5px;color:var(--warn)}
+.side table{border-collapse:collapse;width:100%;font-size:11.5px}
+.side td,.side th{border-bottom:1px solid var(--line);padding:2px 3px;text-align:left;font-variant-numeric:tabular-nums}
+.side tr.me{cursor:pointer}
+.side tr.me:hover{background:#1b2229}
+.side .v1{color:var(--ok)}.side .v2{color:var(--warn)}.side .v3{color:var(--bad)}
+footer{position:fixed;right:0;bottom:0;left:0;border-top:1px solid var(--line);background:#0b0e11f2;padding:7px 16px;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--dim);backdrop-filter:blur(6px);flex-wrap:wrap}
+kbd{background:#0d1116;border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:0 4px;font-size:11px;font-family:Consolas,monospace}
+.pbar{height:5px;background:#1b2229;border-radius:3px;overflow:hidden;min-width:120px;max-width:260px;flex:1}
+.pbar>i{display:block;height:100%;background:linear-gradient(90deg,#2f6b8a,#4ec98a)}
+.empty{color:var(--dim);padding:26px 10px;text-align:center;border:1px dashed var(--line);border-radius:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>科技重要度 + 收录边界 · 存量裁决台 <span style="font-size:11px;color:var(--dim)">契约 §8 单文件页 · 卡片不含任何建议档</span></h1>
+  <div class="bar">
+    <label class="fld">shard <input id="shard" size="10" value="calib"></label>
+    <label class="fld">owner <input id="owner" size="10" value="calib"></label>
+    <label class="fld">判据版本 <input id="cver" size="6" value="v1"></label>
+    <label class="fld">批 <select id="batchSel"><option value="">全部</option></select></label>
+    <button id="pickCards">选择卡片 JSON…</button>
+    <input id="fileInput" type="file" accept=".json,application/json" multiple style="display:none">
+    <button id="loadInline">载入内联卡片</button>
+    <span id="srcInfo">未载入卡片</span>
+    <button id="toggleCrit">收起/展开判据</button>
+  </div>
+  <div class="bar">
+    <span>进度 <b id="progTxt">0/0</b></span>
+    <div class="pbar"><i id="progBar" style="width:0%"></i></div>
+    <span>本筛推翻率 <b id="overTurn">—</b></span>
+    <span>换档 <b id="cChanged">0</b> · 移出 <b id="cRemoved">0</b> · 非科技保留 <b id="cKeep">0</b> · 挂起 <b id="cHold">0</b> · 维持不动 <b id="cKeepTier">0</b></span>
+    <span>存储键 <b id="lsKey">—</b></span>
+  </div>
+  <div id="critWrap">
+    <h2>判据原文（spec §1 · 判据 v1 未产出，先按原文裁）</h2>
+    <p>判据来源：CONTRIBUTING §4 的「<b>抽掉它，后面有多少条科技站不住</b>」；§kind 五分类（工艺 / 器物 / 原理 / 制度 / 媒介）。
+    本次不新造判据，只把隐含判据显式化并经你逐条验证。范围：<code>data/techs.json</code> 全量 3876 条的 <code>importance</code>（1–5 档）
+    与「是否算科技」两个轴；产出是一份可逐条裁决的清单 + 裁决落盘文件；明确不含回写 techs.json、新增校验闸门、长期防漂机制。</p>
+    <p>CONTRIBUTING §4 定档表：1 档 基石（后续一大片领域建立在它之上，例 火、轮、晶体管）· 2 档 领域支柱（蒸汽机、DNA 结构）·
+    3 档 领域内重要（感应电动机）· 4 档 改良与细分（超外差接收机）· 5 档 长尾补充（具体机型、单一工艺）。
+    判据是「抽掉它，后面有多少条科技站不住」，不是「它出名不出名」。同一时代同领域里 1 档应当是少数。</p>
+    <h2>结构信号警告（spec §2 · 读任何档位数字前必看）</h2>
+    <p>全库 2158/3876 条没有任何直接下游；档位与「零直接前置引用」几乎无关（P1=34、P2=827、P3=737、P4=496、P5=64）；
+    22 个领域中 15 个的「域内下游数中位数 = 0」。结论：<b>扇入 / 下游数只能做域内相对提名，不能当档位判据</b>。
+    卡片上的 pf、descendants、排名只用于定位条目在域内的位置，不构成「该降档」的证据；判档请回到 desc 与「抽掉它谁站不住」。</p>
+    <h2>提名通道定义（契约 §4，通道名与本页 chip 逐字一致）</h2>
+    <table>
+      <tr><th>channel_name</th><th>规则（域内相对）</th><th>spec 实测</th></tr>
+      <tr><td>基石尾组</td><td>P1 且（域内下游数 ≤ 本域 P1 的 20 分位 或 pf==0）</td><td>64</td></tr>
+      <tr><td>支柱尾组</td><td>P2 且 域内下游数 ≤ 本域 P2 的 20 分位 且 &lt; 全域中位数（实现取本域全量中位数）</td><td>208</td></tr>
+      <tr><td>疑被低估</td><td>P3+ 且 域内下游数 ≥ 本域 75 分位 且 &gt; 50</td><td>23</td></tr>
+      <tr><td>原理零引用</td><td>kind=原理 且 rf==0</td><td>100</td></tr>
+      <tr><td>孤岛媒介制度</td><td>kind∈{媒介,制度} 且 rf==0 且 out_deg==0</td><td>7</td></tr>
+      <tr><td>高档无溯源</td><td>importance≤2 且 wikiEn 为空</td><td>5</td></tr>
+      <tr><td>判据专项</td><td>判据 v1 转写的规则（T1 段才存在）</td><td>待定</td></tr>
+    </table>
+    <p style="color:var(--dim)">命中通道只说明这条进了提名池，不说明该改档。校准批 100 条同时是第二段规则漏检验证的测试集（spec §3.2）。</p>
+    <h2>本批要判什么（spec §5）</h2>
+    <p>① 是否算科技：<code>科技</code> / <code>非科技保留</code> / <code>移出</code>（三态，落盘逐字用这三个字符串）。
+    ② importance：<code>维持</code> / <code>1</code>…<code>5</code> / <code>挂起</code>。③ 理由：选「非科技保留」「移出」或换档时必填。
+    「移出」在本阶段只写裁决文件、不动 techs.json（spec §7 风险表）。校准批的 100 个 id 预留给漏检验证，任何组不得再裁一遍（契约 §7）。</p>
+  </div>
+</header>
+
+<main>
+  <div class="cols">
+    <div id="stage"><div class="empty">先用上方「选择卡片 JSON…」载入 <code>data/adjud/cards/calib-batch-1.json</code> 等卡片文件，或把卡片内联进本页 <code>&lt;script id="inline-cards"&gt;</code> 后点「载入内联卡片」。</div></div>
+    <div class="side">
+      <h3>已裁条目（点一行回看 / 改判）</h3>
+      <div id="doneBox"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <button id="prev">← 上一条</button>
+  <button id="next">下一条 →</button>
+  <button class="pri" id="submit">提交并下一条</button>
+  <button id="exportBtn">导出分片 JSON（契约 §7）</button>
+  <button class="danger" id="wipe">清空本 shard 进度</button>
+  <span style="margin-left:auto">
+    <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> 边界 ·
+    <kbd>q</kbd><kbd>w</kbd><kbd>e</kbd><kbd>r</kbd><kbd>t</kbd><kbd>y</kbd> 维持/1/2/3/4/5 ·
+    <kbd>u</kbd> 挂起 · <kbd>Enter</kbd> 提交（理由框内用 <kbd>Ctrl</kbd>+<kbd>Enter</kbd>） · <kbd>[</kbd><kbd>]</kbd> 翻页
+  </span>
+</footer>
+
+<!-- INLINE_CARDS_MARKER：把 adjud_cards.mjs 产出的卡片文档整体替换进下面的 script 标签即可离线预览（数组形式可放多个批） -->
+<script type="application/json" id="inline-cards">
+[]
+</script>
+
+<script>
+"use strict";
+/* ---------- 契约 §7：取值集合与不变量 ---------- */
+var BOUNDARY = ["科技", "非科技保留", "移出"];          // 三态，逐字
+var BKEY = { "1": "科技", "2": "非科技保留", "3": "移出" };
+var IMPS = ["维持", 1, 2, 3, 4, 5, "挂起"];
+var IKEY = { q: "维持", w: 1, e: 2, r: 3, t: 4, y: 5, u: "挂起" };
+var FILE_TAG = "adjudication-2026Q4";
+
+var S = { cards: [], order: [], batches: [], batchFilter: "", pos: 0, records: {}, draft: {}, source: "" };
+
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function pct(x) { return (x == null || isNaN(x)) ? "—" : (Math.round(x * 1000) / 10).toFixed(1) + "%"; }
+function lsKey() { return "adjud-review:v1:" + (($("shard").value || "").trim() || "calib"); }
+function curCard() { return S.order.length ? S.cards[S.order[S.pos]] : null; }
+function cardById(id) { for (var i = 0; i < S.cards.length; i++) if (S.cards[i].card.id === id) return S.cards[i]; return null; }
+
+/** 契约 §7：非科技保留 / 移出 / 改档 必须 reason.length>0。改档 = 选了与现档不同的数字。 */
+function reasonRequired(r, currentImportance) {
+  if (r.boundary === "非科技保留" || r.boundary === "移出") return true;
+  var cur = currentImportance != null ? currentImportance : r.current_importance;
+  return typeof r.importance === "number" && cur != null && r.importance !== cur;
+}
+function validateRecord(r, currentImportance) {
+  var e = [];
+  if (!r.id) e.push("缺 id");
+  if (BOUNDARY.indexOf(r.boundary) < 0) e.push("boundary 必须逐字是 科技 / 非科技保留 / 移出，当前=" + JSON.stringify(r.boundary));
+  var ok = r.importance === "维持" || r.importance === "挂起" || (typeof r.importance === "number" && r.importance >= 1 && r.importance <= 5);
+  if (!ok) e.push("importance 必须是 维持|1|2|3|4|5|挂起，当前=" + JSON.stringify(r.importance));
+  if (!r.batch) e.push("缺 batch");
+  if (reasonRequired(r, currentImportance) && !(typeof r.reason === "string" && r.reason.length > 0))
+    e.push("改判/移出/换档必须写 reason");
+  return e;
+}
+function validateShard(doc, importanceOf) {
+  var errs = []; var seen = {};
+  (doc.records || []).forEach(function (r, i) {
+    var cur = importanceOf ? importanceOf(r.id) : null;
+    var e = validateRecord(r, cur);
+    if (e.length) errs.push("records[" + i + "] " + r.id + "：" + e.join("；"));
+    if (seen[r.id]) errs.push("records[" + i + "] " + r.id + "：同 id 在一个分片里只能出现一次");
+    seen[r.id] = 1;
+  });
+  if (!doc.shard) errs.push("缺 shard");
+  if (!doc.owner) errs.push("缺 owner");
+  if (!doc.criteria_version) errs.push("缺 criteria_version");
+  return errs;
+}
+
+/* ---------- 进度：localStorage，key 含 shard 名 ---------- */
+function save() {
+  try {
+    localStorage.setItem(lsKey(), JSON.stringify({
+      shard: ($("shard").value || "").trim(), owner: ($("owner").value || "").trim(),
+      criteria_version: ($("cver").value || "").trim(), saved_ts: new Date().toISOString(), records: S.records
+    }));
+  } catch (e) { $("srcInfo").textContent = "localStorage 写入失败：" + e.message; }
+  $("lsKey").textContent = lsKey();
+}
+function restore() {
+  S.records = {};
+  try {
+    var raw = localStorage.getItem(lsKey());
+    if (!raw) return 0;
+    var d = JSON.parse(raw);
+    S.records = d.records || {};
+    return Object.keys(S.records).length;
+  } catch (e) { return 0; }
+}
+
+/* ---------- 载入卡片（文件 / 内联，多个批文件合并） ---------- */
+function normalizeDocs(payload, label) {
+  var docs = [];
+  var arr = Array.isArray(payload) ? payload : [payload];
+  arr.forEach(function (x) {
+    if (x && Array.isArray(x.cards)) docs.push(x);
+    else if (x && typeof x.id === "string") docs.push({ shard: x.shard || "calib", batch: x.batch || label, cards: [x] });
+    else if (Array.isArray(x)) docs.push({ shard: "calib", batch: label, cards: x });
+  });
+  return docs;
+}
+function ingest(payload, label) {
+  var docs = (payload && payload.multi) ? payload.multi : normalizeDocs(payload, label);
+  if (!docs.length) { alert("这份 JSON 里没有证据卡（要 {shard,batch,cards:[…]}，或卡片数组）：" + label); return; }
+  S.cards = []; S.batches = [];
+  docs.forEach(function (d) {
+    (d.cards || []).forEach(function (c) {
+      if (!c || typeof c.id !== "string") return;
+      var batch = d.batch || (d.shard || "calib") + "-1";
+      S.cards.push({ card: c, batch: batch, shard: d.shard || "calib" });
+      if (S.batches.indexOf(batch) < 0) S.batches.push(batch);
+    });
+  });
+  if (!S.cards.length) { alert("卡片数组是空的：" + label); return; }
+  S.source = label; S.draft = {};
+  var n = restore();
+  $("batchSel").innerHTML = '<option value="">全部</option>' + S.batches.map(function (b) { return '<option value="' + esc(b) + '">' + esc(b) + "</option>"; }).join("");
+  S.batchFilter = "";
+  rebuildOrder();
+  S.pos = 0;
+  $("srcInfo").textContent = label + " · " + S.cards.length + " 张卡 · 批 " + S.batches.join(" / ") + (n ? " · 已恢复 " + n + " 条裁决" : " · 无历史裁决");
+  render();
+}
+function rebuildOrder() {
+  S.order = [];
+  for (var i = 0; i < S.cards.length; i++) if (!S.batchFilter || S.cards[i].batch === S.batchFilter) S.order.push(i);
+  if (S.pos >= S.order.length) S.pos = Math.max(0, S.order.length - 1);
+}
+function readFile(f, done) {
+  var fr = new FileReader();
+  fr.onload = function () {
+    try { done(normalizeDocs(JSON.parse(fr.result), f.name), f.name); }
+    catch (e) { console.warn("卡片文件解析失败", f.name, e && e.message); done([], f.name); }
+  };
+  fr.onerror = function () { console.warn("读文件失败", f.name); done([], f.name); };
+  fr.readAsText(f, "utf-8");
+}
+function loadFiles(fileList) {
+  var files = [].slice.call(fileList);
+  if (!files.length) return;
+  var all = [], names = [], k = 0;
+  files.forEach(function (f) {
+    readFile(f, function (docs, name) {
+      all = all.concat(docs); names.push(name);
+      if (++k === files.length) {
+        if (!all.length) alert("这些文件里都没有证据卡：" + names.join("、"));
+        else ingest({ multi: all }, names.join(" + "));
+      }
+    });
+  });
+}
+
+/* ---------- 渲染 ---------- */
+function domainCount(c) {
+  if (c.desc_rank && c.desc_rank_pct) return Math.round(c.desc_rank / c.desc_rank_pct);
+  return null;
+}
+function metricBoxes(c) {
+  var dn = domainCount(c);
+  var m = [
+    ["pf 直接前置引用", c.pf, "作为他人 prereq 终点次数"],
+    ["rf 被引总数", c.rf, "prereq + related 被引"],
+    ["out_deg 出边", c.out_deg, "prereq 出边数"],
+    ["descendants 传递下游", c.descendants, "prereq 闭包（去环）"],
+    ["域内下游排名", pct(c.desc_rank_pct), dn ? "降序 " + c.desc_rank + "/" + dn : "降序 " + c.desc_rank],
+    ["同域同代档位位次", pct(c.tier_rank_pct), c.category + " + " + c.era],
+    ["wikiEn 溯源", c.wikiEn ? "有" : "空", c.wikiEn ? "" : "无英文词条"],
+    ["year", c.year, "year_basis=" + (c.year_basis || "空")]
+  ];
+  return '<div class="grid">' + m.map(function (x) {
+    return '<div class="m"><span class="lb">' + esc(x[0]) + '</span><span class="vl">' + esc(x[1]) + "</span>" +
+      (x[2] ? ' <span class="sub">' + esc(x[2]) + "</span>" : "") + "</div>";
+  }).join("") + "</div>";
+}
+function viewState() {
+  var e = curCard(); if (!e) return null;
+  var id = e.card.id;
+  var rec = S.records[id], dr = S.draft[id];
+  return {
+    boundary: (dr && dr.boundary) || (rec && rec.boundary) || "科技",
+    importance: (dr && dr.importance !== undefined) ? dr.importance : (rec ? rec.importance : "维持"),
+    reason: (dr && dr.reason !== undefined) ? dr.reason : (rec ? rec.reason || "" : "")
+  };
+}
+function render() {
+  var stage = $("stage");
+  if (!S.order.length) {
+    stage.innerHTML = '<div class="empty">没有可裁卡片。用「选择卡片 JSON…」载入 data/adjud/cards/*.json，或把卡片内联进本页。</div>';
+    renderSide(); renderProg(); return;
+  }
+  var e = curCard(), c = e.card, v = viewState();
+  var dn = domainCount(c);
+  var dd = c.direct_downstream || [];
+  var rec = S.records[c.id];
+  stage.innerHTML =
+    '<div class="card">' +
+    '<div class="warnstrip">本域 <b>' + esc(c.category) + "</b>" + (dn ? "（" + dn + " 条）" : "") +
+    " 的零下游占比 <b>" + pct(c.desc_zero_share) + "</b>" +
+    '<span style="font-size:11.5px"> —— 域内大片条目没有任何传递下游，这是补边欠账（spec §2），不是档位信号。' +
+    "下面的 pf / 排名 / 分位只帮你定位这条在域内的位置，<b>不构成改档理由</b>。</span></div>" +
+    '<div class="head"><span class="nm">' + esc(c.name) + "</span>" +
+    '<span class="en">' + esc(c.nameEn || "") + "</span>" +
+    '<span class="chip k">id <b>' + esc(c.id) + "</b></span>" +
+    '<span class="chip">现档 P' + esc(c.importance) + "</span>" +
+    '<span class="chip">现 kind ' + esc(c.kind) + "</span>" +
+    '<span class="chip">' + esc(c.category) + " · " + esc(c.era) + "</span>" +
+    '<span class="chip">' + esc(e.batch) + "</span>" +
+    '<span class="chip">第 ' + (S.pos + 1) + " / " + S.order.length + " 条</span>" +
+    (rec ? '<span class="chip hot">已裁 ' + esc(rec.boundary) + " · " + esc(String(rec.importance)) + "（再选即改判）</span>" : "") +
+    "</div>" +
+    '<div class="desc">' + esc(c.desc) + "</div>" +
+    metricBoxes(c) +
+    '<div class="dd"><b>直接下游前 ' + dd.length + " 条</b> " +
+    (dd.length ? '<ul style="margin:3px 0 0 18px;padding:0">' + dd.map(function (d) {
+      return "<li>" + esc(d.name) + ' <span style="color:var(--dim)">' + esc(d.id) + " · P" + esc(d.importance) + "</span></li>";
+    }).join("") + "</ul>" : '<span style="color:var(--dim)">无 —— 这条目前没有任何直接下游</span>') + "</div>" +
+    '<div class="dd"><b>提名通道</b> ' + ((c.channels || []).length
+      ? (c.channels || []).map(function (x) { return '<span class="chip hot">' + esc(x) + "</span>"; }).join(" ")
+      : '<span style="color:var(--dim)">无（契约 §4 六条规则均未触发）</span>') + "</div>" +
+    '<div class="why"><b>why（机械事实）</b>：' + esc(c.why || "") + "</div>" +
+    '<details class="raw"><summary>原始字段全量（techs.json 条目 + 契约 §2 MetricRow；页内无任何建议档）</summary><pre>' +
+    esc(JSON.stringify(c, null, 1)) + "</pre></details>" +
+    '<div class="ask">' +
+    '<div class="q">① 是否算科技<span class="hint">键 1/2/3 · 落盘逐字：' + BOUNDARY.join(" / ") + "</span></div>" +
+    '<div class="row">' + BOUNDARY.map(function (b, i) {
+      return '<button data-b="' + esc(b) + '" class="' + (v.boundary === b ? "on" : "") + '">' + (i + 1) + " · " + esc(b) + "</button>";
+    }).join("") + "</div>" +
+    '<div class="q" style="margin-top:8px">② importance<span class="hint">键 q w e r t y = 维持 1 2 3 4 5，u = 挂起 · 现档 P' + esc(c.importance) + "</span></div>" +
+    '<div class="row">' + IMPS.map(function (val) {
+      var sel = v.importance === val;
+      var lab = val === "维持" ? "维持（P" + esc(c.importance) + "）" : String(val);
+      return '<button data-i="' + esc(String(val)) + '" class="' + (sel ? "on" : "") + '">' + esc(lab) + "</button>";
+    }).join("") + "</div>" +
+    '<div class="q" style="margin-top:8px">③ 理由<span class="hint"><span class="req">必填条件</span>：非科技保留 / 移出 / 换档；不满足不许提交下一条</span></div>' +
+    '<textarea id="reason" placeholder="一句话理由：抽掉它后面哪些条站不住 / 为什么不算科技 / 为什么该升或降档"></textarea>' +
+    '<div class="msg" id="msg"></div>' +
+    "</div></div>";
+  $("reason").value = v.reason;
+  $("reason").addEventListener("input", function (ev) { var d = draft(); if (d) d.reason = ev.target.value; });
+  renderSide(); renderProg();
+}
+function draft() {
+  var e = curCard(); if (!e) return null;
+  var id = e.card.id;
+  if (!S.draft[id]) {
+    var rec = S.records[id];
+    S.draft[id] = rec
+      ? { boundary: rec.boundary, importance: rec.importance, reason: rec.reason || "" }
+      : { boundary: "科技", importance: "维持", reason: "" };
+  }
+  return S.draft[id];
+}
+function setBoundary(b) { var d = draft(); if (!d) return; d.boundary = b; render(); }
+function setImportance(v) { var d = draft(); if (!d) return; d.importance = v; render(); }
+function submit(advance) {
+  var e = curCard(); if (!e) return;
+  var d = draft(); if (!d) return;
+  var r = {
+    id: e.card.id, batch: e.batch, channels: e.card.channels || [],
+    boundary: d.boundary, importance: d.importance, reason: (d.reason || "").trim(),
+    ts: new Date().toISOString()
+  };
+  var errs = validateRecord(r, e.card.importance);
+  if (errs.length) { showMsg(errs.join("；"), "err"); var ta = $("reason"); if (ta) ta.focus(); return; }
+  S.records[r.id] = r;
+  S.draft[r.id] = { boundary: r.boundary, importance: r.importance, reason: r.reason };
+  save();
+  var before = S.pos;
+  if (advance && S.pos < S.order.length - 1) S.pos++;
+  render();
+  if (S.pos !== before) {
+    showMsg("已记录 " + r.id + " → " + r.boundary + " · " + r.importance + "，现在是第 " + (S.pos + 1) + " 条。", "ok");
+    $("stage").scrollIntoView({ block: "start" });
+  } else showMsg("已记录 " + r.id + " → " + r.boundary + " · " + r.importance + "（已是本筛最后一条）", "ok");
+}
+function showMsg(t, cls) { var m = $("msg"); if (m) { m.className = "msg " + cls; m.textContent = t; } }
+function renderProg() {
+  var total = S.order.length, done = 0, ch = 0, rm = 0, kp = 0, hd = 0, same = 0;
+  S.order.forEach(function (i) {
+    var c = S.cards[i].card, r = S.records[c.id];
+    if (!r) return;
+    done++;
+    if (r.boundary === "移出") rm++;
+    else if (r.boundary === "非科技保留") kp++;
+    if (r.importance === "挂起") hd++;
+    if (typeof r.importance === "number" && r.importance !== c.importance) ch++;
+    if (r.boundary === "科技" && (r.importance === "维持" || r.importance === c.importance)) same++;
+  });
+  $("progTxt").textContent = done + "/" + total;
+  $("progBar").style.width = total ? (done * 100 / total).toFixed(1) + "%" : "0%";
+  $("cChanged").textContent = ch; $("cRemoved").textContent = rm; $("cKeep").textContent = kp;
+  $("cHold").textContent = hd; $("cKeepTier").textContent = same;
+  var over = done ? (ch + rm + kp) / done : 0;
+  $("overTurn").textContent = done ? (Math.round(over * 1000) / 10).toFixed(1) + "%（spec §6：>20% 才启动全量快筛）" : "—";
+  $("lsKey").textContent = lsKey();
+}
+function renderSide() {
+  var ids = Object.keys(S.records).filter(function (id) { return cardById(id); });
+  var rows = ids.map(function (id) {
+    var r = S.records[id], c = cardById(id).card;
+    var cls = r.boundary === "移出" ? "v3" : r.boundary === "非科技保留" ? "v2" : "v1";
+    var chg = (typeof r.importance === "number" && r.importance !== c.importance)
+      ? "P" + c.importance + "→" + r.importance : esc(String(r.importance));
+    return '<tr class="me" data-goto="' + esc(id) + '"><td>' + esc(c.name) + "</td><td class=\"" + cls + "\">" + esc(r.boundary) + "</td><td>" + chg + "</td></tr>";
+  }).join("");
+  $("doneBox").innerHTML = rows
+    ? '<table><tr><th>条目</th><th>边界</th><th>档</th></tr>' + rows + "</table>" +
+      '<div style="color:var(--dim);margin-top:5px">共 ' + ids.length + " 条记录。点一行跳到它并可改判，重新提交即覆盖旧记录（同 id 只留最后一次）。</div>"
+    : '<div style="color:var(--dim)">还没有裁决记录。控件选完按 <kbd>Enter</kbd> 提交。</div>';
+}
+
+/* ---------- 导出（契约 §7：shard / owner / criteria_version / records[]） ---------- */
+function buildShardDoc() {
+  var records = Object.keys(S.records).filter(function (id) { return cardById(id); }).map(function (id) {
+    var r = S.records[id], c = cardById(id).card;
+    return {
+      id: r.id, batch: r.batch, channels: (r.channels && r.channels.length ? r.channels : c.channels) || [],
+      boundary: r.boundary, importance: r.importance, reason: r.reason || "", ts: r.ts || ""
+    };
+  }).sort(function (a, b) { return a.batch === b.batch ? (a.id < b.id ? -1 : 1) : (a.batch < b.batch ? -1 : 1); });
+  return {
+    shard: ($("shard").value || "").trim() || "calib",
+    owner: ($("owner").value || "").trim() || "calib",
+    criteria_version: ($("cver").value || "").trim() || "v1",
+    records: records
+  };
+}
+function exportShard() {
+  var doc = buildShardDoc();
+  if (!doc.records.length) { alert("还没有任何裁决记录，导出空分片没意义。"); return; }
+  var errs = validateShard(doc, function (id) { var e = cardById(id); return e ? e.card.importance : null; });
+  if (errs.length) { alert("分片不合契约 §7，已阻止导出：\n" + errs.join("\n")); return; }
+  var blob = new Blob([JSON.stringify(doc, null, 1)], { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = FILE_TAG + "." + doc.shard + ".json";
+  document.body.appendChild(a); a.click();
+  setTimeout(function () { URL.revokeObjectURL(a.href); if (a.parentNode) a.parentNode.removeChild(a); }, 400);
+  showMsg("已校验并导出 " + doc.records.length + " 条 → " + a.download, "ok");
+}
+
+/* ---------- 事件 ---------- */
+document.addEventListener("click", function (ev) {
+  var t = ev.target;
+  if (!t || !t.dataset) return;
+  if (t.dataset.b !== undefined && t.dataset.b !== "") { setBoundary(t.dataset.b); return; }
+  if (t.dataset.i !== undefined && t.dataset.i !== "") {
+    var raw = t.dataset.i;
+    setImportance(raw === "维持" || raw === "挂起" ? raw : Number(raw));
+    return;
+  }
+  if (t.dataset.goto) {
+    var entry = cardById(t.dataset.goto);
+    if (!entry) return;
+    var cardIdx = S.cards.indexOf(entry);
+    if (S.order.indexOf(cardIdx) < 0) { S.batchFilter = ""; $("batchSel").value = ""; rebuildOrder(); }
+    S.pos = S.order.indexOf(cardIdx);
+    render();
+    $("stage").scrollIntoView({ block: "start" });
+  }
+});
+$("pickCards").addEventListener("click", function () { $("fileInput").click(); });
+$("fileInput").addEventListener("change", function (ev) { loadFiles(ev.target.files); ev.target.value = ""; });
+$("loadInline").addEventListener("click", function () {
+  var raw = ($("inline-cards").textContent || "").trim();
+  if (!raw || raw === "[]") { alert("内联卡片槽是空的：本页 id=inline-cards 的 JSON 槽里还没数据。用「选择文件」，或把卡片内联进本页（data/adjud/cards/preview.html 就是这么生成的）。"); return; }
+  try { ingest(JSON.parse(raw), "内联卡片"); } catch (e) { alert("内联 JSON 解析失败：" + e.message); }
+});
+$("batchSel").addEventListener("change", function (ev) { S.batchFilter = ev.target.value; rebuildOrder(); S.pos = 0; render(); });
+$("prev").addEventListener("click", function () { if (S.pos > 0) { S.pos--; render(); } });
+$("next").addEventListener("click", function () { if (S.pos < S.order.length - 1) { S.pos++; render(); } });
+$("submit").addEventListener("click", function () { submit(true); });
+$("exportBtn").addEventListener("click", exportShard);
+$("toggleCrit").addEventListener("click", function () { $("critWrap").classList.toggle("hide"); });
+$("wipe").addEventListener("click", function () {
+  if (!confirm("清空 localStorage 里 " + lsKey() + " 的全部裁决记录？已导出的分片文件不受影响。")) return;
+  localStorage.removeItem(lsKey()); S.records = {}; S.draft = {}; render(); showMsg("进度已清空。", "ok");
+});
+["shard", "cver", "owner"].forEach(function (id) {
+  $(id).addEventListener("change", function () {
+    var n = restore(); S.draft = {}; renderProg(); render();
+    if (n) showMsg("切到 " + lsKey() + "，恢复 " + n + " 条记录。", "ok");
+  });
+});
+document.addEventListener("keydown", function (ev) {
+  var tag = (ev.target && ev.target.tagName) || "";
+  if (tag === "TEXTAREA" || tag === "INPUT" || tag === "SELECT") {
+    if (ev.key === "Enter" && (ev.ctrlKey || ev.metaKey)) { ev.preventDefault(); submit(true); }
+    return;
+  }
+  if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  var k = ev.key;
+  if (BKEY[k]) { ev.preventDefault(); setBoundary(BKEY[k]); return; }
+  var low = k.toLowerCase();
+  if (IKEY[low] !== undefined) { ev.preventDefault(); setImportance(IKEY[low]); return; }
+  if (k === "Enter") { ev.preventDefault(); submit(true); return; }
+  if (k === "]") { ev.preventDefault(); if (S.pos < S.order.length - 1) { S.pos++; render(); } return; }
+  if (k === "[") { ev.preventDefault(); if (S.pos > 0) { S.pos--; render(); } return; }
+});
+
+/* ---------- 启动：有内联卡片就自动载入（preview.html 走这条路） ---------- */
+$("lsKey").textContent = lsKey();
+(function boot() {
+  var raw = ($("inline-cards").textContent || "").trim();
+  if (raw && raw !== "[]") {
+    try { ingest(JSON.parse(raw), "内联卡片（自动）"); return; }
+    catch (e) { console.warn("内联卡片解析失败，改用「选择文件」：", e && e.message); }
+  }
+  var n = restore(); renderProg();
+  if (n) $("srcInfo").textContent = "未载入卡片，但 " + lsKey() + " 里有 " + n + " 条历史裁决";
+})();
+</script>
+</body>
+</html>

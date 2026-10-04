@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:," />
+  <title>服装风格树 · Fashion Style Tree</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="title" class="panel">
+    <h1>服装风格树</h1>
+    <small id="statLine"></small>
+  </div>
+
+  <div id="legend" class="panel"></div>
+
+  <div id="toolbar" class="panel">
+    <button id="btnTour">▶ 漫游动画</button>
+    <button id="btnReset">⟲ 重置视角</button>
+  </div>
+
+  <div id="hint">拖拽旋转 · 滚轮缩放 · 右键平移 · 悬停查看信息 · 点击节点只留相连风格（再点或 Esc 取消）· 漫游中按 Esc 退出</div>
+
+  <div id="eraCaption"></div>
+  <div id="tooltip"></div>
+
+  <div id="credit">
+    可视化引擎改编自
+    <a href="https://github.com/secwind7/polytech-tree" target="_blank" rel="noopener">Polytech Tree</a>
+    （MIT）· 服装风格本体数据 © GarmentPic
+    · 部分节点摘要参考英文维基百科（见悬停卡），按
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> 提供
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

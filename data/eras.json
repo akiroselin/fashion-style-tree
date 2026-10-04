@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ancient_early",
+    "name": "远古与古典",
+    "nameEn": "Ancient & Classical",
+    "yearStart": -3000,
+    "yearEnd": 500,
+    "order": 1
+  },
+  {
+    "id": "medieval",
+    "name": "中世纪",
+    "nameEn": "Medieval",
+    "yearStart": 500,
+    "yearEnd": 1400,
+    "order": 2
+  },
+  {
+    "id": "renaissance",
+    "name": "文艺复兴",
+    "nameEn": "Renaissance",
+    "yearStart": 1400,
+    "yearEnd": 1600,
+    "order": 3
+  },
+  {
+    "id": "baroque",
+    "name": "巴洛克",
+    "nameEn": "Baroque",
+    "yearStart": 1600,
+    "yearEnd": 1715,
+    "order": 4
+  },
+  {
+    "id": "rococo",
+    "name": "洛可可",
+    "nameEn": "Rococo",
+    "yearStart": 1715,
+    "yearEnd": 1790,
+    "order": 5
+  },
+  {
+    "id": "empire",
+    "name": "帝政与摄政",
+    "nameEn": "Empire & Regency",
+    "yearStart": 1790,
+    "yearEnd": 1837,
+    "order": 6
+  },
+  {
+    "id": "victorian",
+    "name": "维多利亚",
+    "nameEn": "Victorian",
+    "yearStart": 1837,
+    "yearEnd": 1901,
+    "order": 7
+  },
+  {
+    "id": "edwardian",
+    "name": "爱德华/美好年代",
+    "nameEn": "Edwardian / Belle Époque",
+    "yearStart": 1901,
+    "yearEnd": 1914,
+    "order": 8
+  },
+  {
+    "id": "jazz",
+    "name": "爵士年代",
+    "nameEn": "Jazz Age",
+    "yearStart": 1914,
+    "yearEnd": 1930,
+    "order": 9
+  },
+  {
+    "id": "wartime",
+    "name": "战间与战时",
+    "nameEn": "Interwar & Wartime",
+    "yearStart": 1930,
+    "yearEnd": 1946,
+    "order": 10
+  },
+  {
+    "id": "newlook",
+    "name": "New Look",
+    "nameEn": "New Look Era",
+    "yearStart": 1946,
+    "yearEnd": 1960,
+    "order": 11
+  },
+  {
+    "id": "youthquake",
+    "name": "青年文化",
+    "nameEn": "Youthquake",
+    "yearStart": 1960,
+    "yearEnd": 1970,
+    "order": 12
+  },
+  {
+    "id": "disco_punk",
+    "name": "迪斯科与朋克",
+    "nameEn": "Disco & Punk",
+    "yearStart": 1970,
+    "yearEnd": 1980,
+    "order": 13
+  },
+  {
+    "id": "power",
+    "name": "权力与品牌",
+    "nameEn": "Power Decade",
+    "yearStart": 1980,
+    "yearEnd": 1990,
+    "order": 14
+  },
+  {
+    "id": "minimal_grunge",
+    "name": "极简与垃圾摇滚",
+    "nameEn": "Minimal & Grunge",
+    "yearStart": 1990,
+    "yearEnd": 2000,
+    "order": 15
+  },
+  {
+    "id": "y2k",
+    "name": "千禧十年",
+    "nameEn": "Y2K Decade",
+    "yearStart": 2000,
+    "yearEnd": 2010,
+    "order": 16
+  },
+  {
+    "id": "digital",
+    "name": "数字核心美学",
+    "nameEn": "Digital Core",
+    "yearStart": 2010,
+    "yearEnd": 2020,
+    "order": 17
+  },
+  {
+    "id": "poly",
+    "name": "多元核时代",
+    "nameEn": "Polycore Era",
+    "yearStart": 2020,
+    "yearEnd": 2030,
+    "order": 18
+  }
+]

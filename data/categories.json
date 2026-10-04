@@ -1,0 +1,154 @@
+[
+  {
+    "id": "minimal_formal",
+    "name": "极简正装",
+    "nameEn": "Minimal & Formal",
+    "group": "A",
+    "color": "#6B8F9E",
+    "subcategories": [
+      "极简",
+      "商务",
+      "正装",
+      "Normcore"
+    ]
+  },
+  {
+    "id": "romantic_decor",
+    "name": "浪漫装饰",
+    "nameEn": "Romantic & Decor",
+    "group": "B",
+    "color": "#C47A8A",
+    "subcategories": [
+      "浪漫",
+      "蕾丝",
+      "少女",
+      "田园"
+    ]
+  },
+  {
+    "id": "utility_work",
+    "name": "工装机能",
+    "nameEn": "Utility & Workwear",
+    "group": "C",
+    "color": "#8B7355",
+    "subcategories": [
+      "工装",
+      "军装",
+      "户外",
+      "机能"
+    ]
+  },
+  {
+    "id": "sport_active",
+    "name": "运动活性",
+    "nameEn": "Sport & Active",
+    "group": "C",
+    "color": "#3D8B6E",
+    "subcategories": [
+      "运动",
+      "Athleisure",
+      "街头运动"
+    ]
+  },
+  {
+    "id": "heritage_classic",
+    "name": "经典传承",
+    "nameEn": "Heritage Classic",
+    "group": "B",
+    "color": "#A67C52",
+    "subcategories": [
+      "学院",
+      "英伦",
+      "复古",
+      "老钱"
+    ]
+  },
+  {
+    "id": "ethnic_folk",
+    "name": "民族民俗",
+    "nameEn": "Ethnic & Folk",
+    "group": "B",
+    "color": "#C9A227",
+    "subcategories": [
+      "波西米亚",
+      "民族",
+      "东方",
+      "国潮"
+    ]
+  },
+  {
+    "id": "street_sub",
+    "name": "街头亚文化",
+    "nameEn": "Street & Subculture",
+    "group": "D",
+    "color": "#5B6BBF",
+    "subcategories": [
+      "街头",
+      "朋克",
+      "嘻哈",
+      "滑板"
+    ]
+  },
+  {
+    "id": "avant_concept",
+    "name": "先锋概念",
+    "nameEn": "Avant-garde",
+    "group": "D",
+    "color": "#2F2F2F",
+    "subcategories": [
+      "解构",
+      "高定",
+      "实验",
+      "暗黑"
+    ]
+  },
+  {
+    "id": "digital_trend",
+    "name": "数字趋势核",
+    "nameEn": "Digital Trends",
+    "group": "D",
+    "color": "#E07A3D",
+    "subcategories": [
+      "Y2K",
+      "Core美学",
+      "平台潮流"
+    ]
+  },
+  {
+    "id": "lifestyle_soft",
+    "name": "生活松弛",
+    "nameEn": "Soft Lifestyle",
+    "group": "A",
+    "color": "#8FAE8B",
+    "subcategories": [
+      "松弛",
+      "度假",
+      "居家潮",
+      "Clean Girl"
+    ]
+  },
+  {
+    "id": "historical_court",
+    "name": "宫廷史服",
+    "nameEn": "Historical Court Dress",
+    "group": "B",
+    "color": "#9B6B8A",
+    "subcategories": [
+      "宫廷",
+      "礼仪",
+      "廓形史"
+    ]
+  },
+  {
+    "id": "ceremonial_ritual",
+    "name": "礼仪仪式",
+    "nameEn": "Ceremonial & Ritual",
+    "group": "B",
+    "color": "#7A5C3E",
+    "subcategories": [
+      "婚礼",
+      "宗教",
+      "盛装"
+    ]
+  }
+]
